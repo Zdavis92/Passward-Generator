@@ -1,15 +1,18 @@
 // Assignment code here
+var charOp = [];
+var genPassword = ""
+
 function useLower() {
   var lower = window.prompt ("Would you like to use lowercase letters? Please enter 'Yes' or 'No'");
   //add make lowercase here
   if (lower === "yes") {
-
+    var lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   }
   else if (lower === "no"){
 
   }
   else {
-    window.alert("Please enter a valid reps")
+    window.alert("Please enter a valid response")
   }
   
 }
