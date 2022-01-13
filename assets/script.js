@@ -33,6 +33,7 @@ function useUpper() {
     var randomUpper = upperLetters[random];
     genPassword = genPassword + randomUpper;
     charactorOpt = charactorOpt.concat(upperLetters);
+    useNumber();
   }
   else if (upper === "no"){
     useNumber();
@@ -42,6 +43,49 @@ function useUpper() {
     useUpper();
   }
 };
+
+function useNumber() {
+  var number = window.prompt("Would you like to use numbers? Please enter 'Yes or no'");
+  number = number.toLowerCase();
+  
+  if (number === "yes") {
+    var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var random = Math.floor(Math.random() * numbers.length);
+    var randomNumber = numbers[random];
+    genPassword = genPassword + randomNumber;
+    charactorOpt = charactorOpt.concat(numbers);
+    useSpecial();
+  }
+  else if (upper === "no"){
+    useSpecial();
+  }
+  else {
+    window.alert("Please enter a valid response")
+    useNumber();
+  }
+};
+
+function useSpecial() {
+  var special = window.prompt("Would you like to use special charactors? Please enter 'Yes or no'");
+  special = special.toLowerCase();
+  
+  if (special === "yes") {
+    var specialCharactors = ['!', '@', '#', '$', '%', '&', '*', '+', '-', '_'];
+    var random = Math.floor(Math.random() * specialCharactors.length);
+    var randomSpecial = specialCharactors[random];
+    genPassword = genPassword + randomSpecial;
+    charactorOpt = charactorOpt.concat(specialCharactors);
+    // passwordLength();
+  }
+  else if (upper === "no"){
+    // passwordLength();
+  }
+  else {
+    window.alert("Please enter a valid response")
+    useSpecial();
+  }
+};
+
 useLower();
 console.log(genPassword);
 console.log(charactorOpt);
