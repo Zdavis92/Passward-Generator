@@ -2,8 +2,13 @@
 var characterOpt = [];
 var genPassword = "";
 var lengthInt = 0;
+var newPassword = "";
 
 function useLower() {
+  characterOpt = [];
+  genPassword = "";
+  lengthInt = 0;
+  newPassword = "";
   var lower = window.prompt ("Would you like to use lowercase letters? Please enter 'Yes' or 'No'");
   lower = lower.toLowerCase();
 
@@ -105,17 +110,29 @@ function generatePassword() {
     var randomCharacter = characterOpt[random]
     genPassword = genPassword + randomCharacter
   }
+  shufflePassword();
 };
+
+function shufflePassword() {
+  var genPassArray = genPassword.split("");
+  for (var i = genPassArray.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = genPassArray[i];
+    genPassArray[i] = genPassArray[j];
+    genPassArray[j] = temp;
+  }
+  newPassword = genPassArray.join('');
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  useLower();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = newPassword;
 
 }
 
